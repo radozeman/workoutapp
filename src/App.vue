@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import "./index.css";
 import Navigation from "./components/Navigation.vue";
 import { ref } from "vue";
 import { supabase } from "./supabase";

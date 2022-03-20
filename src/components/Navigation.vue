@@ -1,7 +1,7 @@
 <template>
   <header class="bg-slate-700">
-    <nav>
-      <ul>
+    <nav class="container py-5 px-15">
+      <ul class="bg-black">
         <router-link v-if="user" class="" :to="{ name: 'Home' }"
           >Home</router-link
         >
