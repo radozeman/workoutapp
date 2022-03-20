@@ -1,30 +1,30 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <Navigation />
+    <router-view />
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+import Navigation from "./components/Navigation.vue";
+import { ref } from "vue";
+import { supabase } from "./supabase";
+import store from "./store/index";
+export default {
+  components: {
+    Navigation,
+  },
+  setup() {
+    const appReady = ref(null);
+    const user = supabase.auth.user();
+    if (!user) {
+      appReady.value = true;
+    }
+    supabase.auth.onAuthStateChange((_, session) => {
+      store.methods.setUser(session);
+      appReady.value = true;
+    });
+    return { appReady };
+  },
+};
+</script>
