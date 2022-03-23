@@ -1,32 +1,49 @@
 <template>
-  <div class="text-white flex justify-center items-center max-w-fit mx-auto">
+  <div
+    class="text-white flex flex-col justify-center items-center max-w-fit mx-auto"
+  >
     <!--Status Msg-->
     <div v-if="statusMsg || errorMsg">
-      <p>{{ statusMsg }}</p>
-      <p>{{ errorMsg }}</p>
+      <p class="bg-green-500 text-white text-center mt-4 px-2 pb-1 rounded-md">
+        {{ statusMsg }}
+      </p>
+      <p class="bg-red-500 text-white text-center mt-4 px-2 pb-1 rounded-md">
+        {{ errorMsg }}
+      </p>
     </div>
     <!--Add Wo-->
-    <form class="flex justify-center items-center flex-col">
-      <!-- Workout name -->
+    <form
+      @submit.prevent="createWorkout"
+      class="flex justify-center items-center flex-col"
+    >
+      <!-- Workout name, date -->
       <label for="workout-name" class="mt-2">Workout Name</label>
       <input
         @click="addWorkout"
         type="text"
         required
-        class="text-center w-50 mb-4 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        class="text-center w-50 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
         id="workout-name"
         v-model="workoutName"
+      />
+      <label for="workout-date" class="mt-2">Workout Date</label>
+      <input
+        type="text"
+        required
+        class="text-center w-50 mb-4 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        id="workout-date"
+        v-model="workoutDate"
       />
       <div class="mb-4" v-for="(item, index) in exercises" :key="index">
         <div
           class="flex flex-col text-center items-center bg-gray-900 rounded-t-md border-4 border-gray-900"
         >
-          <label for="excercise-name">Excercise</label>
+          <label for="exercise-name">Exercise</label>
           <input
             required
             type="text"
             class="w-full text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
-            v-model="item.excercise"
+            v-model="item.exercise"
           />
         </div>
         <div
@@ -88,12 +105,14 @@
 </template>
 
 <script>
+import { supabase } from "../supabase";
 import { ref } from "vue";
 import { uid } from "uid";
 export default {
   name: "create",
   components: {},
   setup() {
+    const workoutDate = ref("");
     const workoutName = ref("");
     const exercises = ref([]);
     const statusMsg = ref(null);
@@ -101,7 +120,7 @@ export default {
     const addExercise = () => {
       exercises.value.push({
         id: uid(),
-        excercise: "",
+        exercise: "",
         sets: "",
         reps: "",
         weight: "",
@@ -116,7 +135,7 @@ export default {
         );
         return;
       }
-      errorMsg.value = "Can't delete, you must have at least one exercise ";
+      errorMsg.value = "Can't delete, you must have at least one exercise";
       setTimeout(() => {
         errorMsg.value = false;
       }, 5000);
@@ -125,14 +144,40 @@ export default {
       exercises.value = [];
       addExercise();
     };
+    const createWorkout = async () => {
+      try {
+        const { error } = await supabase.from("workouts").insert([
+          {
+            workoutName: workoutName.value,
+            workoutDate: workoutDate.value,
+            exercises: exercises.value,
+          },
+        ]);
+        if (error) throw error;
+        statusMsg.value = "Workout added succesfully";
+        workoutName.value = null;
+        workoutDate.value = null;
+        exercises.value = [];
+        setTimeout(() => {
+          statusMsg.value = false;
+        }, 4000);
+      } catch (error) {
+        errorMsg.value = `${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 4000);
+      }
+    };
     return {
       workoutName,
+      workoutDate,
       exercises,
       statusMsg,
       errorMsg,
       addExercise,
       addWorkout,
       deleteExercise,
+      createWorkout,
     };
   },
 };
