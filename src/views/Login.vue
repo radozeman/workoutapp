@@ -1,22 +1,42 @@
 <template>
-  <div class="">
+  <div class="flex justify-center items-center w-full flex-col">
     <!-- Errors -->
-    <div v-if="errorMsg" class="">
+    <div
+      v-if="errorMsg"
+      class="bg-red-500 text-white text-center mt-4 px-2 pb-1 rounded-md"
+    >
       <p>{{ errorMsg }}</p>
     </div>
     <!-- Login Form -->
-    <div class="">
-      <form @submit.prevent="loginUser">
-        <label for="email">Email</label>
-        <input type="text" required id="email" v-model="email" />
-        <label for="password">Password</label>
-        <input type="password" required id="password" v-model="password" />
-        <button type="submit">Login</button>
-        <router-link class="" :to="{ name: 'Register' }"
-          >Don't have an account? <span class="">Register</span></router-link
-        >
-      </form>
-    </div>
+    <form @submit.prevent="loginUser" class="flex flex-col mx-auto w-60">
+      <label for="email" class="text-white mt-2">Email</label>
+      <input
+        type="text"
+        required
+        id="email"
+        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        v-model="email"
+      />
+      <label for="password" class="text-white">Password</label>
+      <input
+        type="password"
+        required
+        id="password"
+        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        v-model="password"
+      />
+      <button
+        type="submit"
+        class="p-1 rounded-md bg-green-500 border-2 border-green-500 my-3 hover:border-white hover:text-white"
+      >
+        Login
+      </button>
+      <router-link class="text-white text-center" :to="{ name: 'Register' }"
+        >Don't have an account?<span class="text-green-500">
+          Register
+        </span></router-link
+      >
+    </form>
   </div>
 </template>
 
@@ -45,7 +65,7 @@ export default {
         errorMsg.value = `${error.message}`;
         setTimeout(() => {
           errorMsg.value = null;
-        }, 5000);
+        }, 4000);
       }
     };
 

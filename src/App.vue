@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <Navigation />
-    <router-view />
+  <div class="flex justify-center items-center min-h-screen bg-black px-2">
+    <div class="container h-full bg-gray-800 flex flex-col pb-2 rounded-lg">
+      <Navigation />
+      <router-view />
+    </div>
   </div>
 </template>
 
