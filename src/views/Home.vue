@@ -1,5 +1,5 @@
 <template>
-  <div v-if="dataLoaded" class="container">
+  <div v-if="dataLoaded" class="flex flex-col">
     <div v-if="data.length == 0" class="flex flex-col justify-center my-2">
       <h1 class="text-center text-white">You haven't added workout yet</h1>
       <router-link :to="{ name: 'Create' }" class="text-center text-green-500">

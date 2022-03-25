@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-center items-center min-h-screen bg-black px-2">
-    <div class="container h-full bg-gray-800 flex flex-col pb-2 rounded-lg">
+    <div
+      class="container h-full bg-gray-800 flex flex-col pb-2 rounded-lg max-w-2xl text-sm"
+    >
       <Navigation />
       <router-view />
     </div>
@@ -30,3 +32,6 @@ export default {
   },
 };
 </script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+</style>

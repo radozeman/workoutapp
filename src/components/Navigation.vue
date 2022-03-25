@@ -18,7 +18,7 @@
         >
         <router-link
           v-if="!user"
-          class="px-3 mx-2 border-2 rounded-md hover:bg-gray-800"
+          class="px-3 pb-1 mx-2 border-2 rounded-md hover:bg-gray-800"
           :to="{ name: 'Login' }"
           >Login</router-link
         >
