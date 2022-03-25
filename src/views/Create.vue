@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-white flex flex-col justify-center items-center max-w-fit mx-auto"
+    class="text-white flex flex-col justify-center items-center max-w-fit mx-auto min-h-80"
   >
     <!--Status Msg-->
     <div v-if="statusMsg || errorMsg">
@@ -22,7 +22,7 @@
         @click="addWorkout"
         type="text"
         required
-        class="text-center w-50 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        class="text-center w-50 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
         id="workout-name"
         v-model="workoutName"
       />
@@ -30,11 +30,11 @@
       <input
         type="text"
         required
-        class="text-center w-50 mb-4 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        class="text-center w-50 mb-4 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
         id="workout-date"
         v-model="workoutDate"
       />
-      <div class="mb-4" v-for="(item, index) in exercises" :key="index">
+      <div class="mb-3" v-for="(item, index) in exercises" :key="index">
         <div
           class="flex flex-col text-center items-center bg-gray-900 rounded-t-md border-4 border-gray-900"
         >
@@ -42,7 +42,7 @@
           <input
             required
             type="text"
-            class="w-full text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+            class="w-full text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
             v-model="item.exercise"
           />
         </div>
@@ -53,7 +53,7 @@
             <label for="sets">Sets</label>
             <input
               required
-              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-green-500"
+              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-blue-500"
               type="text"
               v-model="item.sets"
             />
@@ -62,7 +62,7 @@
             <label for="reps">Reps</label>
             <input
               required
-              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-green-500"
+              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-blue-500"
               type="text"
               v-model="item.reps"
             />
@@ -71,7 +71,7 @@
             <label for="weight">Weight</label>
             <input
               required
-              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-green-500"
+              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-blue-500"
               type="text"
               v-model="item.weight"
             />
@@ -80,7 +80,7 @@
             <label for="rest">Rest</label>
             <input
               required
-              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-green-500"
+              class="w-14 text-center border-2 border-gray-600 bg-gray-600 rounded-md text-white focus:outline-none focus:border-2 focus:border-blue-500"
               type="text"
               v-model="item.rest"
             />
@@ -90,13 +90,13 @@
       <button
         @click="addExercise"
         type="button"
-        class="text-center mt-4 p-1 px-3 pt-0 rounded-md bg-orange-400 border-2 border-orange-400 my-3 hover:border-white hover:text-white"
+        class="text-center p-1 px-3 pt-0 rounded-md bg-orange-400 border-2 border-orange-400 my-1 hover:border-white hover:text-white"
       >
         Add Exercise
       </button>
       <button
         type="submit"
-        class="w-full text-center p-1 rounded-md bg-green-500 border-2 border-green-500 my-3 hover:border-white hover:text-white"
+        class="w-full text-center p-1 rounded-md bg-blue-500 border-2 border-blue-500 my-3 hover:border-white hover:text-white"
       >
         Save Workout
       </button>
@@ -154,7 +154,7 @@ export default {
           },
         ]);
         if (error) throw error;
-        statusMsg.value = "Workout added succesfully";
+        statusMsg.value = "Workout added successfully";
         workoutName.value = null;
         workoutDate.value = null;
         exercises.value = [];

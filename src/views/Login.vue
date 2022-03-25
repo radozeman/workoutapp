@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center w-full flex-col">
+  <div class="flex justify-center items-center w-full flex-col pb-4">
     <!-- Errors -->
     <div
       v-if="errorMsg"
@@ -14,7 +14,7 @@
         type="text"
         required
         id="email"
-        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
         v-model="email"
       />
       <label for="password" class="text-white">Password</label>
@@ -22,17 +22,17 @@
         type="password"
         required
         id="password"
-        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-green-500"
+        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
         v-model="password"
       />
       <button
         type="submit"
-        class="p-1 rounded-md bg-green-500 border-2 border-green-500 my-3 hover:border-white hover:text-white"
+        class="p-1 rounded-md bg-blue-500 border-2 border-blue-500 my-3 hover:border-white text-white"
       >
         Login
       </button>
       <router-link class="text-white text-center" :to="{ name: 'Register' }"
-        >Don't have an account?<span class="text-green-500">
+        >Don't have an account?<span class="text-blue-500">
           Register
         </span></router-link
       >

@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center min-h-screen bg-black px-2">
     <div
-      class="container h-full bg-gray-800 flex flex-col pb-2 rounded-lg max-w-2xl text-sm"
+      class="container h-full bg-gray-800 flex flex-col rounded-lg max-w-2xl text-sm"
     >
       <Navigation />
       <router-view />
