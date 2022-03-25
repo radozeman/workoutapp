@@ -90,7 +90,7 @@
       <button
         @click="addExercise"
         type="button"
-        class="text-center mt-4 p-1 px-3 pt-0 rounded-md bg-green-500 border-2 border-green-500 my-3 hover:border-white hover:text-white"
+        class="text-center mt-4 p-1 px-3 pt-0 rounded-md bg-orange-400 border-2 border-orange-400 my-3 hover:border-white hover:text-white"
       >
         Add Exercise
       </button>
