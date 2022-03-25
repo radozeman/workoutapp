@@ -1,6 +1,6 @@
 <template>
   <div v-if="dataLoaded" class="flex flex-col">
-    <div v-if="data.length == 0" class="flex flex-col justify-center my-2">
+    <div v-if="data.length == 0" class="flex flex-col justify-center h-80 my-2">
       <h1 class="text-center text-white">You haven't added workout yet</h1>
       <router-link :to="{ name: 'Create' }" class="text-center text-green-500">
         Add Workout
@@ -10,7 +10,7 @@
       <router-link
         class="bg-gray-700 cursor-pointer mb-4 pt-1 pb-2 rounded-md flex justify-between px-2"
         :to="{ name: 'View-Workout', params: { workoutId: workout.id } }"
-        v-for="(workout, index) in data"
+        v-for="(workout, index) in data.slice().reverse()"
         :key="index"
       >
         <p class="text-white text-center uppercase">
