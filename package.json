@@ -6,8 +6,10 @@
     "start": "vue-cli-service start",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "heroku-postinstall": "npm install && npm run build"
   },
+  "heroku-postinstall": "npm install && npm run build",
   "dependencies": {
     "@vue/cli-service": "~5.0.0",
     "@supabase/supabase-js": "^1.31.1",
