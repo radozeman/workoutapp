@@ -6,11 +6,11 @@
         Add Workout
       </router-link>
     </div>
-    <div v-else class="flex flex-col justify-center px-8 mt-5">
+    <div v-else class="flex flex-col-reverse justify-center px-8 mt-5">
       <router-link
         class="bg-gray-700 cursor-pointer mb-4 pt-1 pb-2 rounded-md flex justify-between px-2"
         :to="{ name: 'View-Workout', params: { workoutId: workout.id } }"
-        v-for="(workout, index) in data.slice().reverse()"
+        v-for="(workout, index) in data"
         :key="index"
       >
         <p class="text-white text-center uppercase">
