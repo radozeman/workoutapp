@@ -1,14 +1,10 @@
 <template>
   <div
-    v-if="AppReady"
-    class="flex justify-center items-center min-h-screen bg-black px-2"
+    v-if="appReady"
+    class="container h-full bg-gray-800 flex flex-col rounded-lg max-w-2xl text-sm mx-auto"
   >
-    <div
-      class="container h-full bg-gray-800 flex flex-col rounded-lg max-w-2xl text-sm"
-    >
-      <Navigation />
-      <router-view />
-    </div>
+    <Navigation />
+    <router-view />
   </div>
 </template>
 
