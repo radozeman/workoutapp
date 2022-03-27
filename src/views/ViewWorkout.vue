@@ -1,12 +1,12 @@
 <template>
-  <div class="container flex justify-center min-h-80 px-6 pb-4">
+  <div class="container flex justify-center px-6 pb-4 mx-auto">
     <div class="flex flex-col justify-center" v-if="statusMsg || errorMsg">
-      <p class="text-green-500">{{ statusMsg }}</p>
-      <p class="text-red-500">{{ errorMsg }}</p>
+      <p class="text-green">{{ statusMsg }}</p>
+      <p class="text-red">{{ errorMsg }}</p>
     </div>
-    <div class="flex max-w-2xl flex-col items-start" v-if="dataLoaded">
+    <div class="flex flex-col items-start" v-if="dataLoaded">
       <div
-        class="flex flex-wrap w-full justify-center items-center mt-4 bg-gray-700 rounded-md pb-2 py-1"
+        class="flex flex-wrap w-full justify-center items-center mt-4 bg-gray5 rounded-md pb-2 py-1"
         v-for="(item, index) in data.exercises"
         :key="index"
       >
@@ -22,7 +22,7 @@
             <p v-else class="">{{ item.exercise }}</p>
           </div>
         </div>
-        <div class="flex justify-around w-72">
+        <div class="flex justify-around w-80">
           <div class="flex text-center text-white rounded-md">
             <label for="sets" class="-mb-1">Sets</label>
             <input id="sets" v-if="edit" type="text" v-model="item.sets" />

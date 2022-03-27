@@ -13,7 +13,7 @@
       <input
         type="text"
         required
-        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
+        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         id="email"
         v-model="email"
       />
@@ -21,13 +21,13 @@
       <input
         type="password"
         required
-        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
+        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         id="password"
         v-model="password"
       />
       <label for="confirmPassword" class="text-white">Confirm Password</label>
       <input
-        class="mb-1 border-2 border-gray-600 bg-gray-600 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
+        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         type="password"
         required
         id="confirmPassword"
@@ -35,12 +35,12 @@
       />
       <button
         type="submit"
-        class="p-1 rounded-md bg-blue-500 border-2 border-blue-500 my-3 hover:border-white text-white"
+        class="p-1 rounded-md border-2 bg-indigo border-indigo my-3 text-white"
       >
         Register
       </button>
       <router-link class="text-white text-center" :to="{ name: 'Login' }"
-        >Already have account?<span class="text-blue-500">
+        >Already have account?<span class="text-indigo">
           LogIn
         </span></router-link
       >

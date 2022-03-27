@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="appReady"
-    class="container h-full bg-gray-800 flex flex-col rounded-lg max-w-2xl text-sm mx-auto"
+    class="min-h-screen bg-gray6 flex flex-col w-full text-sm mx-auto"
   >
     <Navigation />
     <router-view />
