@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-gray5 flex flex-column rounded-lg sticky pt-5 pb-6 top-0 w-full"
+    class="bg-gray5 flex flex-column rounded-lg sticky pt-7 pb-6 top-0 w-full"
   >
     <div
       @click="toggleNav"
@@ -10,9 +10,13 @@
       <span class="w-6 h-0.5 mb-1 bg-white"></span>
       <span class="w-6 h-0.5 bg-white"></span>
     </div>
-    <router-link v-if="user" :to="{ name: 'Home' }">
+    <router-link
+      v-if="user"
+      :to="{ name: 'Home' }"
+      class="w-7 h-7 bg-gray6 rounded-full absolute right-3.5 top-3.5"
+    >
       <ChevronLeftIcon
-        class="text-white w-5 h-auto mr-2 absolute cursor-pointer right-3 top-3"
+        class="text-white w-5 h-5 mr-2 absolute top-1 left-0.5"
       />
     </router-link>
     <transition
@@ -30,21 +34,21 @@
         <router-link
           @click="toggleNav"
           v-if="user"
-          class="border-1 border-white rounded-md mt-10 mb-4 ml-5 flex"
+          class="border-1 border-white rounded-md mt-20 mb-6 ml-5 flex"
           :to="{ name: 'Home' }"
           ><homeIcon class="w-5 h-5 mr-2" />Home</router-link
         >
         <router-link
           @click="toggleNav"
           v-if="user"
-          class="mb-4 border-1 rounded-md ml-5 flex"
+          class="mb-6 border-1 rounded-md ml-5 flex"
           :to="{ name: 'Create' }"
           ><PlusSmIcon class="w-5 h-5 mr-2" />Create</router-link
         >
         <router-link
           @click="toggleNav"
           v-if="!user"
-          class="mb-4 border-1 rounded-md ml-5 mt-10"
+          class="mb-6 border-1 rounded-md ml-5 mt-10"
           :to="{ name: 'Login' }"
           >Login</router-link
         >
