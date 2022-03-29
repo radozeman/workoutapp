@@ -32,14 +32,14 @@
           v-if="user"
           class="border-1 border-white rounded-md mt-10 mb-4 ml-5 flex"
           :to="{ name: 'Home' }"
-          ><homeIcon class="w-5 h-auto mr-2" />Home</router-link
+          ><homeIcon class="w-5 h-5 mr-2" />Home</router-link
         >
         <router-link
           @click="toggleNav"
           v-if="user"
           class="mb-4 border-1 rounded-md ml-5 flex"
           :to="{ name: 'Create' }"
-          ><PlusSmIcon class="w-5 h-auto mr-2" />Create</router-link
+          ><PlusSmIcon class="w-5 h-5 mr-2" />Create</router-link
         >
         <router-link
           @click="toggleNav"
@@ -56,7 +56,7 @@
           "
           class="cursor-pointer rounded-md ml-6 flex"
         >
-          <LogoutIcon class="w-4 h-auto mr-2" />
+          <LogoutIcon class="w-4 h-5 mr-2" />
           Logout
         </li>
       </ul>

@@ -79,7 +79,7 @@ export default {
         }
         return;
       }
-      errorMsg.value = "Passowrds don't match";
+      errorMsg.value = "Passwords don't match";
       setTimeout(() => {
         errorMsg.value = null;
       }, 5000);
