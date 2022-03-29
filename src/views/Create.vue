@@ -22,7 +22,7 @@
         @click="addWorkout"
         type="text"
         required
-        class="text-center w-50 border-2 border-gray3 bg-gray3 rounded-md text-white pl-1 focus:outline-none"
+        class="text-base text-center w-50 border-2 border-gray3 bg-gray3 rounded-md text-white pl-1 focus:outline-none"
         id="workout-name"
         v-model="workoutName"
       />
@@ -30,7 +30,7 @@
       <input
         type="text"
         required
-        class="text-center w-50 mb-4 border-2 border-gray3 bg-gray3 rounded-md text-white pl-1 focus:outline-none"
+        class="text-base text-center w-50 mb-4 border-2 border-gray3 bg-gray3 rounded-md text-white pl-1 focus:outline-none"
         id="workout-date"
         v-model="workoutDate"
       />
@@ -40,16 +40,16 @@
           <input
             required
             type="text"
-            class="w-full text-center border-2 bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none"
+            class="text-base w-full text-center border-2 bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none"
             v-model="item.exercise"
           />
         </div>
-        <div class="flex flex-wrap justify-center rounded-b-md">
+        <div class="flex flex-wrap justify-center rounded-b-md mt-1">
           <div class="flex flex-col items-center mb-4">
             <label for="sets">Sets</label>
             <input
               required
-              class="w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+              class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
               type="text"
               v-model="item.sets"
             />
@@ -58,7 +58,7 @@
             <label for="reps">Reps</label>
             <input
               required
-              class="w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+              class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
               type="text"
               v-model="item.reps"
             />
@@ -67,7 +67,7 @@
             <label for="weight">Weight</label>
             <input
               required
-              class="w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+              class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
               type="text"
               v-model="item.weight"
             />
@@ -76,7 +76,7 @@
             <label for="rest">Rest</label>
             <input
               required
-              class="w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+              class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
               type="text"
               v-model="item.rest"
             />

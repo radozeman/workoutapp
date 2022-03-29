@@ -3,7 +3,7 @@
     <!-- Errors -->
     <div
       v-if="errorMsg"
-      class="bg-red-500 text-white text-center mt-4 px-2 pb-1 rounded-md"
+      class="bg-red text-white text-center mt-4 px-2 pb-1 rounded-md"
     >
       <p>{{ errorMsg }}</p>
     </div>
@@ -13,7 +13,7 @@
       <input
         type="text"
         required
-        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
+        class="text-base mb-2 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         id="email"
         v-model="email"
       />
@@ -21,13 +21,13 @@
       <input
         type="password"
         required
-        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
+        class="text-base mb-2 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         id="password"
         v-model="password"
       />
       <label for="confirmPassword" class="text-white">Confirm Password</label>
       <input
-        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
+        class="text-base mb-2 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none"
         type="password"
         required
         id="confirmPassword"

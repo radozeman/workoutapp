@@ -3,7 +3,7 @@
     <!-- Errors -->
     <div
       v-if="errorMsg"
-      class="bg-red-500 text-white text-center mt-4 px-2 pb-1 rounded-md"
+      class="bg-red text-white text-center mt-4 px-2 pb-1 rounded-md"
     >
       <p>{{ errorMsg }}</p>
     </div>
@@ -14,7 +14,7 @@
         type="text"
         required
         id="email"
-        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
+        class="mb-1 border-2 select text-base bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none"
         v-model="email"
       />
       <label for="password" class="text-white">Password</label>
@@ -22,7 +22,7 @@
         type="password"
         required
         id="password"
-        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none focus:border-2 focus:border-blue-500"
+        class="mb-1 border-2 bg-gray3 border-gray3 rounded-md py-0 text-white pl-1 focus:outline-none text-base"
         v-model="password"
       />
       <button

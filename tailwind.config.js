@@ -19,6 +19,11 @@ module.exports = {
       minHeight: (theme) => ({
         ...theme("spacing"),
       }),
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { left: 15 },
+        },
+      },
     },
   },
   plugins: [],
