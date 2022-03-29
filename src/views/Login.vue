@@ -1,10 +1,10 @@
 <template>
   <transition
     appear
-    enter-active-class="duration-200 ease-all"
+    enter-active-class="duration-500 ease-all"
     enter-from-class="transform opacity-0"
     enter-to-class="opacity-100"
-    leave-active-class="duration-200 ease-all"
+    leave-active-class="duration-500 ease-all"
     leave-from-class="opacity-100"
     leave-to-class="transform opacity-0"
   >

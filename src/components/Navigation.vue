@@ -4,7 +4,7 @@
   >
     <div
       @click="toggleNav"
-      class="flex flex-col absolute cursor-pointer left-5 top-4 z-10"
+      class="flex flex-col absolute cursor-pointer left-5 top-5 z-10"
     >
       <span class="w-6 h-0.5 mb-1 bg-white"></span>
       <span class="w-6 h-0.5 mb-1 bg-white"></span>
