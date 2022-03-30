@@ -11,10 +11,7 @@
     <div
       class="container flex justify-center flex-col px-6 pb-4 mx-auto sm:w-3/12"
     >
-      <div
-        class="flex justify-center mt-8 mb-8 sm:mt-4 sm:mb-4"
-        v-if="statusMsg || errorMsg"
-      >
+      <div class="flex justify-center mt-4 mb-4" v-if="statusMsg || errorMsg">
         <p class="text-green">{{ statusMsg }}</p>
         <p
           class="text-white text-center border-2 border-red mt-4 rounded-md px-6 pb-2 pt-1"
@@ -38,7 +35,7 @@
             :key="index"
           >
             <div
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-2 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-3 sm:left-2 cursor-pointer"
             >
               <PencilIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
@@ -47,7 +44,7 @@
                 deleteExercise(item.id);
                 updateWorkout();
               "
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 right-2 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 right-3 sm:right-2 cursor-pointer"
             >
               <TrashIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
