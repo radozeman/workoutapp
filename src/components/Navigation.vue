@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-gray5 flex flex-column rounded-lg sticky pt-7 pb-6 top-0 w-full"
+    class="bg-gray5 flex flex-column rounded-lg sticky pt-7 pb-6 top-0 w-full z-20"
   >
     <div
       @click="toggleNav"
