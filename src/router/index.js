@@ -8,7 +8,7 @@ import ViewWorkout from "../views/ViewWorkout.vue";
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home,
     meta: {
@@ -26,7 +26,7 @@ const routes = [
   },
 
   {
-    path: "/",
+    path: "/login",
     name: "Login",
     component: Login,
     meta: {

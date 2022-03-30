@@ -13,10 +13,16 @@
     >
       <!--Status Msg-->
       <div v-if="statusMsg || errorMsg">
-        <p class="bg-green text-white text-center mt-4 px-2 pb-1 rounded-md">
+        <p
+          v-show="!errorMsg"
+          class="text-white text-center border-2 border-green mt-4 rounded-md px-6 pb-2 pt-1"
+        >
           {{ statusMsg }}
         </p>
-        <p class="bg-red text-white text-center mt-4 px-2 pb-1 rounded-md">
+        <p
+          v-show="!statusMsg"
+          class="text-white text-center border-2 border-red mt-4 rounded-md px-6 pb-2 pt-1"
+        >
           {{ errorMsg }}
         </p>
       </div>
@@ -37,13 +43,25 @@
         />
         <label for="workout-date" class="mt-2">Workout Date</label>
         <input
-          type="text"
+          type="date"
           required
           class="text-base text-center w-50 mb-4 border-2 border-gray3 bg-gray3 rounded-md text-white pl-1 focus:outline-none"
           id="workout-date"
           v-model="workoutDate"
         />
-        <div class="mb-3" v-for="(item, index) in exercises" :key="index">
+        <div
+          class="mb-3 relative"
+          v-for="(item, index) in exercises"
+          :key="index"
+        >
+          <div
+            @click="deleteExercise(item.id)"
+            class="absolute -right-6 bottom-12"
+          >
+            <TrashIcon
+              class="text-white cursor-pointer hover:text-indigo w-5 h-5"
+            />
+          </div>
           <div class="flex flex-col text-center items-center rounded-t-md">
             <label for="exercise-name">Exercise</label>
             <input
@@ -59,7 +77,7 @@
               <input
                 required
                 class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="text"
+                type="number"
                 v-model="item.sets"
               />
             </div>
@@ -68,7 +86,7 @@
               <input
                 required
                 class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="text"
+                type="number"
                 v-model="item.reps"
               />
             </div>
@@ -77,7 +95,7 @@
               <input
                 required
                 class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="text"
+                type="number"
                 v-model="item.weight"
               />
             </div>
@@ -86,7 +104,7 @@
               <input
                 required
                 class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="text"
+                type="number"
                 v-model="item.rest"
               />
             </div>
@@ -111,13 +129,16 @@
 </template>
 
 <script>
+import { TrashIcon } from "@heroicons/vue/outline";
 import { supabase } from "../supabase";
 import { ref } from "vue";
 import { uid } from "uid";
+import { useRouter } from "vue-router";
 export default {
   name: "create",
-  components: {},
+  components: { TrashIcon },
   setup() {
+    const router = useRouter();
     const workoutDate = ref("");
     const workoutName = ref("");
     const exercises = ref([]);
@@ -141,10 +162,10 @@ export default {
         );
         return;
       }
-      errorMsg.value = "Can't delete, you must have at least one exercise";
+      errorMsg.value = "No exercises to delete";
       setTimeout(() => {
         errorMsg.value = false;
-      }, 5000);
+      }, 3000);
     };
     const addWorkout = () => {
       exercises.value = [];
@@ -164,14 +185,15 @@ export default {
         workoutName.value = null;
         workoutDate.value = null;
         exercises.value = [];
+        router.push({ name: "Home" });
         setTimeout(() => {
           statusMsg.value = false;
-        }, 4000);
+        }, 3000);
       } catch (error) {
         errorMsg.value = `${error.message}`;
         setTimeout(() => {
           errorMsg.value = false;
-        }, 4000);
+        }, 3000);
       }
     };
     return {
