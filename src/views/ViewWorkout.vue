@@ -35,7 +35,7 @@
             :key="index"
           >
             <div
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-3 sm:left-2 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-4 sm:left-2 cursor-pointer"
             >
               <PencilIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
@@ -44,7 +44,7 @@
                 deleteExercise(item.id);
                 updateWorkout();
               "
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 right-3 sm:right-2 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 right-4 sm:right-2 cursor-pointer"
             >
               <TrashIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
