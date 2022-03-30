@@ -38,22 +38,22 @@
             :key="index"
           >
             <div
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-1 left-1 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-2 cursor-pointer"
             >
-              <PencilIcon class="w-5 h-5 text-white hover:text-indigo" />
+              <PencilIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
             <div
               @click="
                 deleteExercise(item.id);
                 updateWorkout();
               "
-              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-1 right-1 cursor-pointer"
+              class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 right-2 cursor-pointer"
             >
-              <TrashIcon class="w-5 h-5 text-white hover:text-indigo" />
+              <TrashIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
             <div class="flex basis-full justify-center">
               <div
-                class="flex text-center text-white uppercase rounded-md py-1"
+                class="flex text-center text-white uppercase rounded-md py-3 sm:py-1"
               >
                 <label for="exercise-name"></label>
                 <input
