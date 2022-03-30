@@ -30,7 +30,7 @@
       >
         <div class="flex flex-col items-start mt-8 sm:mt-4" v-if="dataLoaded">
           <div
-            class="flex flex-wrap w-full justify-center items-center mb-8 sm:mb-4 bg-gray5 rounded-md pb-2 py-1 relative"
+            class="flex flex-wrap w-full justify-center items-center mb-8 sm:mb-4 bg-gray5 rounded-md pb-2 py-1 relative z-0"
             v-for="(item, index) in data.exercises"
             :key="index"
           >
