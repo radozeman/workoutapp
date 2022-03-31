@@ -120,7 +120,7 @@
                 min="1"
                 max="5"
                 step="1"
-                class="appearance-none mb-4 outline-none h-1 rounded-sm bg-gradient-to-r from-green via-orange to-red"
+                class="w-52 appearance-none mb-4 outline-none h-1 rounded-sm bg-gradient-to-r from-green via-orange to-red"
               />
             </div>
           </div>
