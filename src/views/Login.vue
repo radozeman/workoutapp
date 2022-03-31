@@ -46,6 +46,13 @@
           </span></router-link
         >
       </form>
+      <div
+        class="text-white mt-4 flex flex-col justify-center items-start border-2 border-orange rounded-md p-5 pb-6"
+      >
+        <p class="text-lg text-orange">Try without registration</p>
+        <p class="mt-1 mb-1">Email : demou3556@gmail.com</p>
+        <p>Password : demou3556</p>
+      </div>
     </div>
   </transition>
 </template>
