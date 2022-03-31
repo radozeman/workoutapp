@@ -52,9 +52,9 @@
             >
               <TrashIcon class="w-4 h-4 text-white hover:text-indigo" />
             </div>
-            <div class="flex basis-full justify-center">
+            <div class="flex basis-full justify-center items-center">
               <div
-                class="flex text-center text-white uppercase rounded-md py-3 sm:py-1"
+                class="flex text-center text-white uppercase rounded-md py-3 sm:py-1 mr-2"
               >
                 <label class="text-center" for="exercise-name"></label>
                 <input
@@ -66,6 +66,19 @@
                   v-model="item.exercise"
                 />
                 <p v-else class="">{{ item.exercise }}</p>
+              </div>
+              <div class="flex text-white text-center">
+                <label for="range"></label>
+                <input
+                  v-if="edit"
+                  type="range"
+                  v-model="item.intensity"
+                  min="1"
+                  max="5"
+                  step="1"
+                  class="appearance-none mb-4 outline-none h-1 rounded-sm bg-gradient-to-r from-green via-orange to-red"
+                />
+                <p v-else class="">| {{ item.intensity }}</p>
               </div>
             </div>
             <div class="flex justify-around w-80">

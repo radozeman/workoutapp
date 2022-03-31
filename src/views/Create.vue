@@ -56,7 +56,7 @@
         >
           <div
             @click="deleteExercise(item.id)"
-            class="absolute -right-6 bottom-12"
+            class="absolute -right-6 bottom-[7rem]"
           >
             <TrashIcon
               class="text-white cursor-pointer hover:text-indigo w-5 h-5"
@@ -67,45 +67,60 @@
             <input
               required
               type="text"
-              class="text-base w-full text-center border-2 bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none"
+              class="text-base text-center border-2 bg-gray3 border-gray3 rounded-md text-white pl-1 focus:outline-none"
               v-model="item.exercise"
             />
           </div>
-          <div class="flex flex-wrap justify-center rounded-b-md mt-1">
-            <div class="flex flex-col items-center mb-4">
-              <label for="sets">Sets</label>
-              <input
-                required
-                class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="number"
-                v-model="item.sets"
-              />
-            </div>
-            <div class="flex flex-col items-center mx-1">
-              <label for="reps">Reps</label>
-              <input
-                required
-                class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="number"
-                v-model="item.reps"
-              />
-            </div>
-            <div class="flex flex-col items-center mr-1">
-              <label for="weight">Weight</label>
-              <input
-                required
-                class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="number"
-                v-model="item.weight"
-              />
+          <div class="flex flex-wrap flex-col justify-center rounded-b-md mt-1">
+            <div class="flex">
+              <div class="flex flex-col items-center mb-4">
+                <label for="sets">Sets</label>
+                <input
+                  required
+                  class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  type="number"
+                  v-model="item.sets"
+                />
+              </div>
+              <div class="flex flex-col items-center mx-1">
+                <label for="reps">Reps</label>
+                <input
+                  required
+                  class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  type="number"
+                  v-model="item.reps"
+                />
+              </div>
+              <div class="flex flex-col items-center mr-1">
+                <label for="weight">Weight</label>
+                <input
+                  required
+                  class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  type="number"
+                  v-model="item.weight"
+                />
+              </div>
+              <div class="flex flex-col items-center">
+                <label for="rest">Rest</label>
+                <input
+                  required
+                  class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  type="number"
+                  v-model="item.rest"
+                />
+              </div>
             </div>
             <div class="flex flex-col items-center">
-              <label for="rest">Rest</label>
+              <label for="range" class="mb-4 text-center">
+                Intensity : {{ item.intensity }}
+              </label>
               <input
-                required
-                class="text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
-                type="number"
-                v-model="item.rest"
+                v-model="item.intensity"
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                class="appearance-none mb-4 outline-none h-1 rounded-sm bg-gradient-to-r from-green via-orange to-red"
               />
             </div>
           </div>
@@ -119,7 +134,7 @@
         </button>
         <button
           type="submit"
-          class="w-full text-center p-1 rounded-md bg-indigo border-2 border-indigo my-3 hover:text-white"
+          class="w-52 text-center p-1 rounded-md bg-indigo border-2 border-indigo my-3 hover:text-white"
         >
           Save Workout
         </button>
@@ -144,6 +159,8 @@ export default {
     const exercises = ref([]);
     const statusMsg = ref(null);
     const errorMsg = ref(null);
+    const intensity = ref("");
+
     const addExercise = () => {
       exercises.value.push({
         id: uid(),
@@ -151,7 +168,7 @@ export default {
         sets: "",
         reps: "",
         weight: "",
-        time: "",
+        intensity: "",
       });
       return;
     };
@@ -197,6 +214,7 @@ export default {
       }
     };
     return {
+      intensity,
       workoutName,
       workoutDate,
       exercises,
