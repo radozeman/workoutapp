@@ -26,7 +26,7 @@
         class="flex flex-col-reverse justify-center sm:items-center px-8 mt-5"
       >
         <router-link
-          class="bg-gray5 cursor-pointer mb-4 pt-1 pb-2 rounded-md flex justify-between px-2 sm:w-80"
+          class="bg-gray5 cursor-pointer mb-4 pt-2 pb-2 rounded-md flex justify-between px-2 sm:w-80"
           :to="{ name: 'View-Workout', params: { workoutId: workout.id } }"
           v-for="(workout, index) in data"
           :key="index"
