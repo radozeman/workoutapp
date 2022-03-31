@@ -9,6 +9,12 @@
     leave-to-class="transform opacity-0"
   >
     <div v-if="dataLoaded" class="flex flex-col">
+      <router-link
+        :to="{ name: 'Create' }"
+        class="w-9 h-9 bg-indigo rounded-full mx-auto mt-4"
+      >
+        <PlusSmIcon class="w-7 h-7 text-white translate-x-1 translate-y-1" />
+      </router-link>
       <div v-if="data.length == 0" class="flex flex-col justify-center my-2">
         <h1 class="text-center text-white">You haven't added workout yet</h1>
         <router-link :to="{ name: 'Create' }" class="text-center text-green">
@@ -38,11 +44,12 @@
 </template>
 
 <script>
+import { PlusSmIcon } from "@heroicons/vue/outline";
 import { ref } from "vue";
 import { supabase } from "../supabase";
 export default {
   name: "home",
-  components: {},
+  components: { PlusSmIcon },
   setup() {
     const data = ref([]);
     const dataLoaded = ref(null);

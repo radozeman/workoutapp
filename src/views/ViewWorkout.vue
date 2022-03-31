@@ -35,6 +35,10 @@
             :key="index"
           >
             <div
+              @click="
+                editMode();
+                updateWorkout();
+              "
               class="w-8 h-8 bg-gray6 rounded-full flex justify-center items-center absolute top-2 left-4 sm:left-2 cursor-pointer"
             >
               <PencilIcon class="w-4 h-4 text-white hover:text-indigo" />
@@ -52,8 +56,10 @@
               <div
                 class="flex text-center text-white uppercase rounded-md py-3 sm:py-1"
               >
-                <label for="exercise-name"></label>
+                <label class="text-center" for="exercise-name"></label>
                 <input
+                  placeholder="Exercise name"
+                  class="text-base w-22 mb-2 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
                   id="exercise-name"
                   v-if="edit"
                   type="text"
@@ -64,18 +70,36 @@
             </div>
             <div class="flex justify-around w-80">
               <div class="flex text-center text-white rounded-md">
-                <label for="sets" class="-mb-1">Sets</label>
-                <input id="sets" v-if="edit" type="text" v-model="item.sets" />
+                <label v-show="!edit" for="sets" class="-mb-1">Sets</label>
+                <input
+                  required
+                  placeholder="Sets"
+                  class="ml-1 mr-2 text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  id="sets"
+                  v-if="edit"
+                  type="text"
+                  v-model="item.sets"
+                />
                 <p v-else>: {{ item.sets }}</p>
               </div>
               <div class="flex text-center text-white rounded-md">
-                <label for="reps" class="-mb-1">Reps</label>
-                <input id="reps" v-if="edit" type="text" v-model="item.reps" />
+                <label v-show="!edit" for="reps" class="-mb-1">Reps</label>
+                <input
+                  required
+                  placeholder="Reps"
+                  class="ml-1 mr-2 text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  id="reps"
+                  v-if="edit"
+                  type="text"
+                  v-model="item.reps"
+                />
                 <p v-else>: {{ item.reps }}</p>
               </div>
               <div class="flex text-center text-white rounded-md">
-                <label for="weight" class="-mb-1">Weight</label>
+                <label v-show="!edit" for="weight" class="-mb-1">Weight</label>
                 <input
+                  placeholder="Weight"
+                  class="ml-1 mr-2 text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
                   id="weight"
                   v-if="edit"
                   type="text"
@@ -84,8 +108,15 @@
                 <p v-else>: {{ item.weight }}</p>
               </div>
               <div class="flex text-center text-white rounded-md">
-                <label for="rest" class="-mb-1">Rest</label>
-                <input id="rest" v-if="edit" type="text" v-model="item.rest" />
+                <label v-show="!edit" for="rest" class="-mb-1">Rest</label>
+                <input
+                  placeholder="Rest"
+                  class="ml-1 text-base w-14 text-center border-2 bg-gray3 border-gray3 rounded-md text-white focus:outline-none"
+                  id="rest"
+                  v-if="edit"
+                  type="text"
+                  v-model="item.rest"
+                />
                 <p v-else>: {{ item.rest }}</p>
               </div>
             </div>
@@ -141,7 +172,7 @@ export default {
         );
         return;
       }
-      errorMsg.value = "U must have at least 2 exercises";
+      errorMsg.value = "You must have at least 2 exercises";
       setTimeout(() => {
         errorMsg.value = false;
       }, 3000);
