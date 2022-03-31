@@ -29,7 +29,7 @@
             {{ workout.workoutName }}
           </p>
           <p class="text-white text-center uppercase">
-            {{ workout.workoutDate }}
+            {{ workout.workoutDate.split("-").reverse().join(".") }}
           </p>
         </router-link>
       </div>
